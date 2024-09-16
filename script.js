@@ -125,3 +125,51 @@ console.log(newArray);
 
 
 
+//Part 3: Transforming Data
+
+// For each row of data in the result array produced by your code above, create an object where the key of each value is the heading for that value’s column.
+// Convert these keys to all lowercase letters for consistency.
+// Store these objects in an array, in the order that they were originally listed.
+// Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
+
+
+let people = {};
+let completeRoster = [];
+let sNo = 0;
+
+let peopleKey = [];
+
+for(let i=0;i<newArray[0].length;i++){
+    peopleKey.push(newArray[0][i].toLowerCase());
+} 
+
+
+for(let i=1;i<newArray.length;i++){
+
+    for(let j=0;j<row.length;j++){
+
+
+        people[peopleKey[j]] = newArray[i][j];   
+
+
+    }
+
+    completeRoster.push(people);
+    people = {};
+}
+
+console.log(completeRoster);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

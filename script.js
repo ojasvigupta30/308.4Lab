@@ -24,20 +24,20 @@ let csvStr = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63
 
 cell = ``;
 
-for (let i = 0; i <= csvStr.length; i++) {
+for (let i = 0; i <= csvStr.length; i++) { 
 
     let char = csvStr[i];
 
     if (char === `,`) {
 
         col.push(cell);
-        cell=``;
+        cell = ``;
 
     }
 
-    else if(char===`\n`){
+    else if (char === `\n`) {
         col.push(cell);
-        cell=``;
+        cell = ``;
         //csvSheet.push(col);
         console.log(col);
         col = [];
@@ -49,7 +49,7 @@ for (let i = 0; i <= csvStr.length; i++) {
         cell = cell + csvStr[i];
     }
 
-    if(i === csvStr.length -1){
+    if (i === csvStr.length - 1) {
         col.push(cell);
         //csvSheet.push(col); 
         console.log(col);
@@ -91,13 +91,13 @@ for (let i = 0; i <= csvStr.length; i++) {
     if (char === `,`) {
 
         row.push(cell);
-        cell=``;
+        cell = ``;
 
     }
 
-    else if(char===`\n`){
+    else if (char === `\n`) {
         row.push(cell);
-        cell=``;
+        cell = ``;
         newArray.push(row);
         row = [];
 
@@ -109,9 +109,9 @@ for (let i = 0; i <= csvStr.length; i++) {
     }
 
 
-    if(i === csvStr.length -1){
+    if (i === csvStr.length - 1) {
         row.push(cell);
-        newArray.push(row); 
+        newArray.push(row);
         //console.log(row);
     }
 
@@ -139,17 +139,17 @@ let sNo = 0;
 
 let peopleKey = [];
 
-for(let i=0;i<newArray[0].length;i++){
+for (let i = 0; i < newArray[0].length; i++) {
     peopleKey.push(newArray[0][i].toLowerCase());
-} 
+}
 
 
-for(let i=1;i<newArray.length;i++){
+for (let i = 1; i < newArray.length; i++) {
 
-    for(let j=0;j<row.length;j++){
+    for (let j = 0; j < peopleKey.length; j++) {
 
 
-        people[peopleKey[j]] = newArray[i][j];   
+        people[peopleKey[j]] = newArray[i][j];
 
 
     }
@@ -193,7 +193,7 @@ completeRoster.pop(); //remove the last entry
 
 console.log(completeRoster);
 
-completeRoster.splice(1,0,{id: "48", name: "Barry", occupation: "Runner", age: "25" }); //add new element object at index 1
+completeRoster.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" }); //add new element object at index 1
 
 console.log(completeRoster);
 
@@ -203,7 +203,7 @@ console.log(completeRoster);
 
 
 //calculate avg. age of people in the roster
-let totalAge =0;
+let totalAge = 0;
 
 
 //Option 1
@@ -212,14 +212,14 @@ let totalAge =0;
 // });
 
 //Option 2
-for(let i=0;i<completeRoster.length;i++){
+for (let i = 0; i < completeRoster.length; i++) {
 
     totalAge += Number(completeRoster[i].age);
 
 }
 
 
-let averageAge = totalAge/completeRoster.length;
+let averageAge = totalAge / completeRoster.length;
 
 console.log(averageAge);
 
@@ -244,23 +244,23 @@ let csvString = ``;
 
 let csv = ``;
 
-for(let i=0;i<completeRoster.length;i++){
- 
+for (let i = 0; i < completeRoster.length; i++) {
+
     let newPeople = completeRoster[i];
 
-    for(let j=0;j<headerRow.length;j++){
+    for (let j = 0; j < headerRow.length; j++) {
 
         let key = headerRow[j];
         newRow.push(newPeople[key]);
-        
+
     }
 
     csv = newRow.join(`,`);
-        
+
     nestedArray.push(newRow);
     csv = nestedArray.join(`\n`);
     newRow = [];
-    
+
 
 }
 

@@ -169,6 +169,59 @@ console.log(completeRoster);
 
 
 
+//Part 4: Sorting and Manipulating Data
+
+// Using array methods, accomplish the following tasks, in order upon the result of Part 3:
+// Remove the last element from the sorted array.
+// Insert the following object at index 1:
+// { id: "48", name: "Barry", occupation: "Runner", age: "25" }
+// Add the following object to the end of the array:
+// { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+// So far, the results should look like this:
+// [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+//  { id: "48", name: "Barry", occupation: "Runner", age: "25" },
+//  { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+//  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+//  { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+// Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. This calculation should be accomplished using a loop.
+
+completeRoster = completeRoster.sort(); //sort the array
+
+console.log(completeRoster);
+
+completeRoster.pop(); //remove the last entry
+
+console.log(completeRoster);
+
+completeRoster.splice(1,0,{id: "48", name: "Barry", occupation: "Runner", age: "25" }); //add new element object at index 1
+
+console.log(completeRoster);
+
+completeRoster.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" }); //add element object at the end of the array
+
+console.log(completeRoster);
+
+
+//calculate avg. age of people in the roster
+let totalAge =0;
+
+
+//Option 1
+// completeRoster.forEach(people => {
+//     totalAge += Number(people.age)
+// });
+
+//Option 2
+for(let i=0;i<completeRoster.length;i++){
+
+    totalAge += Number(completeRoster[i].age);
+
+}
+
+
+let averageAge = totalAge/completeRoster.length;
+
+console.log(averageAge);
 
 
 

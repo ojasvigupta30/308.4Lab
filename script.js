@@ -226,3 +226,48 @@ console.log(averageAge);
 
 
 
+
+
+//Part 5
+
+// As a final task, transform the final set of data back into CSV format.
+
+
+
+let headerRow = Object.keys(completeRoster[0]);
+
+let newRow = [];
+
+let nestedArray = [headerRow];
+
+let csvString = ``;
+
+let csv = ``;
+
+for(let i=0;i<completeRoster.length;i++){
+ 
+    let newPeople = completeRoster[i];
+
+    for(let j=0;j<headerRow.length;j++){
+
+        let key = headerRow[j];
+        newRow.push(newPeople[key]);
+        
+    }
+
+    csv = newRow.join(`,`);
+        
+    nestedArray.push(newRow);
+    csv = nestedArray.join(`\n`);
+    newRow = [];
+    
+
+}
+
+console.log(csv);
+
+
+
+
+
+

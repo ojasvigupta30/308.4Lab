@@ -17,10 +17,8 @@
 
 
 
-
 let csvSheet = [];
-let index = 0;
-let id=0;
+let col = [];
 
 let csvStr = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
 
@@ -32,16 +30,18 @@ for (let i = 0; i <= csvStr.length; i++) {
 
     if (char === `,`) {
 
-        csvSheet[index] = cell;
-        index++;
+        col.push(cell);
         cell=``;
 
     }
 
     else if(char===`\n`){
-        csvSheet[index] = cell;
-        index++;
+        col.push(cell);
         cell=``;
+        //csvSheet.push(col);
+        console.log(col);
+        col = [];
+
     }
 
 
@@ -50,11 +50,20 @@ for (let i = 0; i <= csvStr.length; i++) {
     }
 
     if(i === csvStr.length -1){
-        csvSheet[index] = cell; 
+        col.push(cell);
+        //csvSheet.push(col); 
+        console.log(col);
     }
 
+
 }
-console.log(csvSheet);
+
+// console.log(col);
+//console.log(csvSheet);
+
+
+
+
 
 
 

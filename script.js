@@ -64,6 +64,64 @@ for (let i = 0; i <= csvStr.length; i++) {
 
 
 
+//Part 2: Expanding Functionality
+
+
+// Declare a variable that stores the number of columns in each row of data within the CSV.
+// Instead of hard-coding four columns per row, expand your code to accept any number of columns. This should be calculated dynamically based on the first row of data.
+// You can safely assume that all rows that follow will contain the same number of entries per row.
+// Store your results in a two-dimensional array.
+// Each row should be its own array, with individual entries for each column.
+// Each row should be stored in a parent array, with the heading row located at index 0.
+// Cache this two-dimensional array in a variable for later use.
+// Using the original CSV example data, here is what the result of this step should look like:
+// ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26
+
+
+let row = [];
+
+cell = ``;
+
+let newArray = [];
+
+for (let i = 0; i <= csvStr.length; i++) {
+
+    let char = csvStr[i];
+
+    if (char === `,`) {
+
+        row.push(cell);
+        cell=``;
+
+    }
+
+    else if(char===`\n`){
+        row.push(cell);
+        cell=``;
+        newArray.push(row);
+        row = [];
+
+    }
+
+
+    else {
+        cell = cell + csvStr[i];
+    }
+
+
+    if(i === csvStr.length -1){
+        row.push(cell);
+        newArray.push(row); 
+        //console.log(row);
+    }
+
+
+}
+
+//console.log(row);
+console.log(newArray);
+
+
 
 
 
